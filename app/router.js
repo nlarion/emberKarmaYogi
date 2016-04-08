@@ -7,6 +7,7 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('admin');
+  this.route('studio', {path: '/studio/:studio_id'});
 });
 
 export default Router;
