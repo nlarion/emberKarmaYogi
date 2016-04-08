@@ -1,1 +1,4 @@
-{{yield}}
+<h4>You are using this site as:
+{{#each currentUser.users as |user| }}
+  {{user.name}}
+{{/each}}</h4>

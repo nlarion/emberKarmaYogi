@@ -11,7 +11,7 @@ export default Ember.Route.extend({
       return user.save();
     });
 
-    this.transitionTo('store');
+    this.transitionTo('admin');
   },
   saveUser(params){
     var newUser = this.store.createRecord('user', params);
