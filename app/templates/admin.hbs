@@ -11,13 +11,13 @@
 </nav>
 
 {{new-studio saveStudio="saveStudio" myUser=model.users}}
+{{new-city saveCity="saveCity" myUser=model.users}}
+{{new-state saveState="saveState" myUser=model.users}}
 
 {{new-user saveUser="saveUser"}}
-
-<h3>Users</h3>
+{{display-user}}
+<h3>Users:</h3>
 <hr>
 {{#each model.users as |user|}}
   {{user-tile user=user }}
 {{/each}}
-
-{{display-user}}

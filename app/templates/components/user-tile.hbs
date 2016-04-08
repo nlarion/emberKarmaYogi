@@ -1,1 +1,4 @@
-{{yield}}
+<h3>{{user.name}}</h3>
+{{#if currentUser.selectUser}}
+  <button {{action 'selectUser' user}}>Select User</button>
+{{/if}}

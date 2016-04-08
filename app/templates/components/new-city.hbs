@@ -1,1 +1,17 @@
-{{yield}}
+{{#if addNewCity}}
+  <h2>New City</h2>
+   <div>
+     <form>
+
+       <div class="form-group">
+         <label for="user">City name: </label>
+         {{input value=user id="user"}}
+       </div>
+
+       <button {{action 'saveCity'}}>Save</button>
+       <button {{action 'hideForm'}}>Hide</button>
+     </form>
+   </div>
+{{else}}
+  <button {{action 'formShow'}}>New City</button>
+{{/if}}
