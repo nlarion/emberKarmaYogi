@@ -1,1 +1,8 @@
-{{yield}}
+{{#if currentCity.selectCity}}
+{{else}}
+  <h4>Current Selected City:
+    {{#each currentCity.cities as |city| }}
+      {{city.name}}
+    {{/each}}
+  </h4>
+{{/if}}

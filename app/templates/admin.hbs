@@ -1,23 +1,33 @@
 <nav class="navbar navbar-default">
-  <a class="navbar-brand" href="/">KarmaYogiYoga</a>
+  {{#link-to 'index' class="navbar-brand"}}KarmaYogiYoga<span class="sr-only">(current)</span>{{/link-to}}
   <ul class="nav navbar-nav">
     <li class="nav-item">
-      <a class="nav-link" href="/">Home</a>
+      {{#link-to 'index' class="nav-link"}}Home<span class="sr-only">(current)</span>{{/link-to}}
     </li>
-    <li class="nav-item active" >
-      <a class="nav-link " href="/admin">Admin<span class="sr-only">(current)</span></a>
+    <li class="nav-item active">
+      {{#link-to 'admin' class="nav-link"}}Admin{{/link-to}}
     </li>
   </ul>
 </nav>
 
 {{new-studio saveStudio="saveStudio" myUser=model.users}}
 {{new-city saveCity="saveCity" myCity=model.cities}}
-{{new-state saveState="saveState" myUser=model.users}}
-
 {{new-user saveUser="saveUser"}}
-{{display-user}}
-<h3>Users:</h3>
-<hr>
-{{#each model.users as |user|}}
-  {{user-tile user=user }}
-{{/each}}
+<div class="row">
+  <div class="col-sm-6">
+    {{display-user}}
+    <h3>Users:</h3>
+    <hr>
+    {{#each model.users as |user|}}
+      {{user-tile user=user }}
+    {{/each}}
+  </div>
+  <div class="col-sm-6">
+    {{display-city}}
+    <h3>Cities:</h3>
+    <hr>
+    {{#each model.cities as |city|}}
+      {{city-tile city=city }}
+    {{/each}}
+  </div>
+</div>

@@ -3,8 +3,8 @@ export default Ember.Route.extend({
   model() {
     return Ember.RSVP.hash({
       //studios: this.store.findAll('studio'),
-      users: this.store.findAll('user')
-      //cities: this.store.findAll('city')
+      users: this.store.findAll('user'),
+      cities: this.store.findAll('city')
     });
   },
   actions: {
