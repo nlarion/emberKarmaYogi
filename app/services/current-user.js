@@ -10,6 +10,6 @@ export default Ember.Service.extend({
     this.get('users').removeObject(user);
   },
   includes(user){
-    return this.get('users').includes(user)
+    return this.get('users').includes(user);
   }
 });

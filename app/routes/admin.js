@@ -4,6 +4,7 @@ export default Ember.Route.extend({
     return Ember.RSVP.hash({
       //studios: this.store.findAll('studio'),
       users: this.store.findAll('user')
+      //cities: this.store.findAll('city')
     });
   },
   actions: {
@@ -19,6 +20,11 @@ export default Ember.Route.extend({
     saveUser(params){
       var newUser = this.store.createRecord('user', params);
       newUser.save();
+      this.transitionTo('admin');
+    },
+    saveCity(params){
+      var newCity = this.store.createRecord('city', params);
+      newCity.save();
       this.transitionTo('admin');
     }
   }

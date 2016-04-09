@@ -11,13 +11,13 @@ export default Ember.Component.extend({
       this.set('addNewCity', false);
     },
 
-    saveUser() {
+    saveCity() {
       var params = {
-        name: this.get('user'),
-        authlevel: 1
+        name: this.get('city'),
+        description: this.get('description')
       };
       this.set('addNewCity', false);
-      this.sendAction('saveUser', params);
+      this.sendAction('saveCity', params);
     }
   }
 });
