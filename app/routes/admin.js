@@ -31,6 +31,17 @@ export default Ember.Route.extend({
       var newCity = this.store.createRecord('city', params);
       newCity.save();
       this.transitionTo('admin');
-    }
+    },
+
+      updater(studio, params) {
+        Object.keys(params).forEach(function(key) {
+          if(params[key]!==undefined) {
+            studio.set(key,params[key]);
+          }
+        });
+        studio.save();
+        this.transitionTo('index');
+      }
+
   }
 });
