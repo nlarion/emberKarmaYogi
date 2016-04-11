@@ -3,5 +3,5 @@ import DS from 'ember-data';
 export default DS.Model.extend({
   name: DS.attr(),
   description: DS.attr(),
-  studio: DS.hasMany('studio', {async:true})
+  studios: DS.hasMany('studio', {async:true})
 });

@@ -1,1 +1,64 @@
-{{yield}}
+{{#if currentUser.selectUser }}
+  <h2>Select a User to create a studio</h2>
+  {{#if currentCity.selectCity}}
+    <h2>Select a City to create a studio</h2>
+  {{else}}
+    {{#if addNewStudio}}
+      <h2>New Studio</h2>
+       <div>
+         <form>
+           <div class="form-group">
+             <label for="name">Studio Name</label>
+             {{input value=name id="name"}}
+           </div>
+
+           <div class="form-group">
+             <label for="image">Image URL</label>
+             {{input value=image id="image"}}
+           </div>
+
+           <div class="form-group">
+             <label for="description">Description</label>
+             {{input value=description id="description"}}
+           </div>
+
+           <button {{action 'saveStudio'}}>Save</button>
+           <button {{action 'hideForm'}}>Hide</button>
+         </form>
+       </div>
+    {{else}}
+      <button {{action 'formShow'}}>New Studio</button>
+    {{/if}}
+  {{/if}}
+{{else}}
+  {{#if currentCity.selectCity}}
+    <h2>Select a City to create a studio</h2>
+  {{else}}
+    {{#if addNewStudio}}
+      <h2>New Studio</h2>
+       <div>
+         <form>
+           <div class="form-group">
+             <label for="name">Studio Name</label>
+             {{input value=name id="name"}}
+           </div>
+
+           <div class="form-group">
+             <label for="image">Image URL</label>
+             {{input value=image id="image"}}
+           </div>
+
+           <div class="form-group">
+             <label for="description">Description</label>
+             {{input value=description id="description"}}
+           </div>
+
+           <button {{action 'saveStudio'}}>Save</button>
+           <button {{action 'hideForm'}}>Hide</button>
+         </form>
+       </div>
+    {{else}}
+      <button {{action 'formShow'}}>New Studio</button>
+    {{/if}}
+  {{/if}}
+{{/if}}

@@ -2,7 +2,7 @@ import Ember from 'ember';
 export default Ember.Route.extend({
   model() {
     return Ember.RSVP.hash({
-      //studios: this.store.findAll('studio'),
+      studios: this.store.findAll('studio'),
       users: this.store.findAll('user'),
       cities: this.store.findAll('city')
     });
@@ -11,9 +11,14 @@ export default Ember.Route.extend({
     saveStudio(params){
       var newStudio = this.store.createRecord('studio', params);
       var user = params.user;
+      var city = params.city;
+      console.log(user.get('studios'));
       user.get('studios').addObject(newStudio);
+      city.get('studios').addObject(newStudio);
       newStudio.save().then(function(){
-        return user.save();
+        return user.save().then(function(){
+          return city.save();
+        });
       });
       this.transitionTo('admin');
     },
