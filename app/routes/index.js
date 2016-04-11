@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Route.extend({
 
   model() {
-    //return this.store.findAll('studio');
+    return this.store.findAll('studio');
   },
   currentCity: Ember.inject.service()
 });
