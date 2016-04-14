@@ -13,6 +13,21 @@ export default Ember.Route.extend({
       });
       studio.save();
       this.transitionTo('index');
+    },
+    saveRating(params){
+      var newRating = this.store.createRecord('rating', params);
+      var user = params.user;
+      var studio = params.studio;
+      user.get('ratings').addObject(newRating);
+      studio.get('ratings').addObject(newRating);
+      newRating.save().then(function(){
+        return user.save().then(function(){
+          return studio.save();
+        });
+      });
+
+
+      this.transitionTo('index');
     }
   }
 });

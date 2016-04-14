@@ -1,0 +1,21 @@
+{{#if currentUser.selectUser }}
+  <h2>Select a user to create a rating</h2>
+
+{{else}}
+{{#if newRating}}
+    <div>
+      <form>
+        {{input value=questionId type="hidden"}}
+
+        <div class="form-group">
+          <label for="theAnswer">Your Rating (1-5):</label><br>
+          {{input value=star id="star" type="number"}}
+        </div>
+
+        <button class="btn btn-primary btn-sm" {{action 'submitRating'}}>Submit Rating</button><br><br><hr>
+      </form>
+    </div>
+{{else}}
+    <button class="btn btn-sm btn-success" id="submitNewRating" {{action 'showRatingForm'}}>New Rating</button>
+{{/if}}
+{{/if}}
